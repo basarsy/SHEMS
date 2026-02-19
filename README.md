@@ -24,8 +24,12 @@ The project follows a standard backend directory layout:
 
 ```text
 src/main/java/com/shems/
-├── model/        # Abstract Device and specific implementations (AC, TV, Light)
-├── repository/   # File I/O logic for data persistence (simulating a database)
-├── service/      # Business logic, EnergyService, Streams, and Lambdas
-├── exception/    # Custom exceptions like DeviceNotFoundException
-└── Main.java     # Application Entry Point
+├── model/           # Device, SmartLight, AirConditioner, SmartTV, House
+├── repository/      # DeviceRepository (file I/O for devices.csv)
+├── service/         # EnergyService, DeviceSimulator
+├── exception/       # MalformedDataException
+└── Main.java        # Application entry point
+
+src/main/resources/
+└── devices.csv      # Persistent data storage
+```

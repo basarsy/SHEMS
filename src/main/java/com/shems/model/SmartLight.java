@@ -1,4 +1,4 @@
-package main.java.com.shems;
+package com.shems.model;
 
 public class SmartLight extends Device{
     public SmartLight(int id, String name, double consumption){
@@ -8,5 +8,10 @@ public class SmartLight extends Device{
     @Override
     public double calculateEnergyUsage(int hours){
         return hours * consumptionPerHour;
+    }
+
+    @Override
+    public String toCsvLine() {
+        return id + ",SmartLight," + name + "," + (isOn ? "ON" : "OFF") + "," + consumptionPerHour + ",";
     }
 }

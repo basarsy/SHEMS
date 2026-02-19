@@ -1,4 +1,4 @@
-package main.java.com.shems;
+package com.shems.model;
 
 public class AirConditioner extends Device{
     private int temperature;
@@ -6,6 +6,10 @@ public class AirConditioner extends Device{
     public AirConditioner(int id, String name, double consumption){
         super(id, name, consumption);
         this.temperature = 24;
+    }
+
+    void loadTemperature(int temperature) {
+        if (temperature >= 16 && temperature <= 32) this.temperature = temperature;
     }
 
     public void setTemperature(int temperature){
@@ -42,5 +46,8 @@ public class AirConditioner extends Device{
         System.out.println(name + " | Current temperature: " + temperature + "°C");
     }
 
-
+    @Override
+    public String toCsvLine() {
+        return id + ",AirConditioner," + name + "," + (isOn ? "ON" : "OFF") + "," + temperature + "," + consumptionPerHour;
+    }
 }
